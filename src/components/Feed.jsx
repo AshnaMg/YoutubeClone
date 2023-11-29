@@ -5,13 +5,13 @@ import { fetchFromAPI } from '../utils/fetchfromapis';
 import { Videos, SideBar } from "./";
 
 const Feed = () => {
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [selectedCategory, setSelectedCategory] = useState('New');
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     // Fetch data only when selectedCategory is truthy (not null or undefined)
     if (selectedCategory) {
-      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+      fetchFromAPI(`caption?part=snippet&q=${selectedCategory}`)
         .then((data) => setVideos(data.items || []))
         .catch((error) => {
           console.error("Error fetching data:", error);
