@@ -11,7 +11,7 @@ const Feed = () => {
   useEffect(() => {
     // Fetch data only when selectedCategory is truthy (not null or undefined)
     if (selectedCategory) {
-      fetchFromAPI(`caption?part=snippet&q=${selectedCategory}`)
+      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
         .then((data) => setVideos(data.items || []))
         .catch((error) => {
           console.error("Error fetching data:", error);
